@@ -1,0 +1,122 @@
+.Register{
+    height: 110%;
+    width: 100%;
+    background-image: linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+.form-box3{
+    background: white;
+    width: 400px;
+    height: 495px;
+    position: relative;
+    margin: 6% auto;
+}
+
+.button-box3{
+    height: 32px;
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #bdd4e7;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.Login-btn2{
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    position: relative;
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+
+.Register-btn2{    
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    position: relative;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    transition: 0.4s linear;
+    color: rgb(24, 23, 23);
+}
+
+#btn3{
+    top: 0;
+    left: 110px;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background-color: #bfe299;
+    background-image: linear-gradient(315deg, #bfe299 0%, #66b5f6 74%);
+    border-radius: 30px;
+}
+
+.social-icons3{
+    margin: 20px auto;
+    text-align: center;
+}
+
+.social-icons img{
+    width: 30px;
+    margin: 0 30px;
+    cursor: pointer;
+    background: white;
+}
+
+.input-group3{
+    font-family: 'Poppins', sans-serif;
+    top: 150px;
+    position: absolute;
+    width: 300px;
+    padding-left: 20px;
+}
+
+.input-box3{
+    width: 100%;
+    padding: 10px 0;
+    margin: 3px 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+
+.submit-btn3{
+    width: 280px;
+    padding: 12px 10px;
+    margin: 10px 0px;
+    cursor: pointer;
+    display: block;
+    background-image: linear-gradient(315deg, #bfe299 0%, #66b5f6 74%);
+    border: 0;
+    outline: none; 
+}
+
+#register{
+    left:40px;
+}
+
+ a{
+    color: rgb(94, 108, 132);
+}
+
+.accounts a ,a :hover{
+    color: #66b5f6;
+    cursor: pointer;
+}
+
+.accounts i{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}

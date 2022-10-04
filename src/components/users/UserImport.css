@@ -1,0 +1,416 @@
+.card-top-user{
+    background: #efeff5;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    width: 50%;
+    margin-top: 2.2rem;
+    margin-left: 380px;
+    text-align: center;
+}
+
+.user-hr{
+    width: 50%;
+    margin-left: 25% !important; 
+}
+
+.user-h3{
+    text-align: center;
+    font-weight: 620;
+    padding-top: 30px;
+}
+
+.user-file-select{
+    font-weight: 0;
+    font-size: 18px;
+    padding-left: 35px;
+}
+
+.user-parse .user-parse-btn{
+    width: 300px;
+    padding: 12px 10px;
+    margin: 30px;
+    cursor: pointer;
+    background: #7380ec;    
+    border: 0;
+    outline: none; 
+    font-size: 16px;
+    color: whitesmoke;
+    border: none;
+    border-radius: 5%;
+    margin-left: 40px;
+    text-align: center;
+    justify-items: center;
+}
+
+.user-parse .user-parse-btn:hover{
+    font-size:  17px;
+    background: #12df9a;
+    transition: all 250ms ease;
+}
+
+.user-back .user-back-btn{
+    color: 'rgba(26, 0, 0, 1)';
+    background: #bdd4e7;
+    width: 300px;
+    padding: 12px 10px;
+    margin: 30px;
+    cursor: pointer;
+    border: 0;
+    outline: none; 
+    font-size: 16px;
+    color: whitesmoke;
+    border: none;
+    border-radius: 5%;
+    margin-left: 40px;
+}
+
+.user-back .user-back-btn:hover{
+    background: var(--color-danger);
+    font-size:  17px;
+    transition: all 250ms ease;
+}
+
+.user-back-hr{
+    width: 36%;
+    margin-left: 32% !important; 
+    margin-top: 5%;
+}
+
+.user-import .user-import-btn{
+    width: 300px;
+    padding: 12px 10px;
+    margin: 30px;
+    cursor: pointer;
+    background: #7380ec;    
+    border: 0;
+    outline: none; 
+    font-size: 16px;
+    color: whitesmoke;
+    border: none;
+    border-radius: 5%;
+    margin-left: 40px;
+}
+
+.user-import .user-import-btn:hover{
+    font-size:  17px;
+    background: #12df9a;
+    transition: all 250ms ease;
+}
+
+
+@media screen and (max-width: 1750px) {
+    .card-top-user{
+        background: #efeff5;
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        width: 50%;
+        margin-top: 40px;
+        margin-left: 460px;
+        text-align: center;
+    }
+    .user-h3{
+        text-align: left;
+        font-weight: 600;
+        padding-top: 30px;
+        padding-left: 150px;
+    }
+    
+    .user-file-select{
+        font-weight: 0;
+        font-size: 15px;
+        padding-left: 35px;
+    }
+    .user-parse .user-parse-btn{
+        width: 200px;
+        padding: 12px 10px;
+        margin: 30px;
+        cursor: pointer;
+        display: block;
+        background: #7380ec;    
+        border: 0;
+        outline: none; 
+        margin-left: 250px;
+        font-size: 16px;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5%;
+    }
+    
+    .user-back .user-back-btn{
+        font-size: 16px;
+        width: 200px;
+        height: 50px;
+        color: 'rgba(26, 0, 0, 1)';
+        background: #bdd4e7;
+        border: none;
+        border-radius: 1%;
+        margin: 5px 400px;
+        margin-top: 10px;
+        margin-left: 250px;
+    }
+    .user-import .user-import-btn{
+        width: 200px;
+        padding: 12px 10px;
+        margin: 30px;
+        cursor: pointer;
+        background: #7380ec;    
+        border: 0;
+        outline: none; 
+        font-size: 16px;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5%;
+        margin-right: 100px;
+    }
+  }
+
+  @media screen and (max-width: 1555px) {
+    .card-top-user{
+        background: #efeff5;
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        width: 50%;
+        margin-top: 40px;
+        margin-left: 460px;
+        text-align: center;
+    }
+    .user-h3{
+        text-align: left;
+        font-weight: 600;
+        padding-top: 30px;
+        padding-left: 150px;
+    }
+    
+    .user-file-select{
+        font-weight: 0;
+        font-size: 15px;
+        padding-left: 35px;
+    }
+    .user-parse .user-parse-btn{
+        width: 200px;
+        padding: 12px 10px;
+        margin: 30px;
+        cursor: pointer;
+        display: block;
+        background: #7380ec;    
+        border: 0;
+        outline: none; 
+        margin-left: 250px;
+        font-size: 16px;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5%;
+    }
+    
+    .user-back .user-back-btn{
+        font-size: 16px;
+        width: 200px;
+        height: 50px;
+        color: 'rgba(26, 0, 0, 1)';
+        background: #bdd4e7;
+        border: none;
+        border-radius: 1%;
+        margin: 5px 400px;
+        margin-top: 10px;
+        margin-left: 250px;
+    }
+    .user-import .user-import-btn{
+        width: 200px;
+        padding: 12px 10px;
+        margin: 30px;
+        cursor: pointer;
+        background: #7380ec;    
+        border: 0;
+        outline: none; 
+        font-size: 16px;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5%;
+        margin-right: 100px;
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    .card-top-user{
+        background: #efeff5;
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        width: 90%;
+        margin-top: 40px;
+        margin-left: 40px;
+        text-align: center;
+    }
+    .user-h3{
+        text-align: left;
+        font-weight: 600;
+        padding-top: 30px;
+        padding-left: 300px;
+        font-size: 18px;
+    }
+    
+    .user-file-select{
+        font-weight: 0;
+        font-size: 17px;
+        padding-left: 35px;
+    }
+    .user-parse .user-parse-btn{
+        width: 150px;
+        padding: 12px 10px;
+        margin: 30px;
+        cursor: pointer;
+        display: block;
+        background: #7380ec;    
+        border: 0;
+        outline: none; 
+        margin-left: 415px;
+        font-size: 16px;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5%;
+    }
+    
+    .user-back .user-back-btn{
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        color: 'rgba(26, 0, 0, 1)';
+        background: #bdd4e7;
+        border: none;
+        border-radius: 1%;
+        margin: 5px 400px;
+        margin-top: 10px;
+        margin-left: 325px;
+    }
+    .user-import .user-import-btn{
+        width: 150px;
+        padding: 12px 10px;
+        margin: 30px;
+        cursor: pointer;
+        background: #7380ec;    
+        border: 0;
+        outline: none; 
+        font-size: 16px;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5%;
+        margin-right: 100px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .card-top-user{
+        background: #efeff5;
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        width: 90%;
+        margin-top: 40px;
+        margin-left: 40px;
+        text-align: center;
+    }
+    .user-h3{
+        text-align: left;
+        font-weight: 600;
+        padding-top: 30px;
+        padding-left: 100px;
+        font-size: 17px;
+    }
+    
+    .user-file-select{
+        font-weight: 0;
+        font-size: 15px;
+        padding-left: 35px;
+    }
+    .user-parse .user-parse-btn{
+        width: 150px;
+        padding: 12px 10px;
+        margin: 30px;
+        cursor: pointer;
+        display: block;
+        background: #7380ec;    
+        border: 0;
+        outline: none; 
+        margin-left: 230px;
+        font-size: 16px;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5%;
+    }
+    
+    .user-back .user-back-btn{
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        color: 'rgba(26, 0, 0, 1)';
+        background: #bdd4e7;
+        border: none;
+        border-radius: 1%;
+        margin: 5px 400px;
+        margin-top: 10px;
+        margin-left: 215px;
+    }
+    .user-import .user-import-btn{
+        width: 150px;
+        padding: 12px 10px;
+        margin: 30px;
+        cursor: pointer;
+        background: #7380ec;    
+        border: 0;
+        outline: none; 
+        font-size: 16px;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5%;
+        margin-right: 100px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .card-top-user{
+        background: #efeff5;
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        width: 90%;
+        margin-top: 40px;
+        margin-left: 40px;
+        text-align: center;
+    }
+    .user-h3{
+        text-align: left;
+        font-weight: 600;
+        padding-top: 30px;
+        padding-left: 100px;
+    }
+    
+    .user-file-select{
+        font-weight: 0;
+        font-size: 15px;
+        padding-left: 5px;
+    }
+    .user-parse .user-parse-btn{
+        width: 150px;
+        padding: 12px 10px;
+        margin: 30px;
+        cursor: pointer;
+        display: block;
+        background: #7380ec;    
+        border: 0;
+        outline: none; 
+        margin-left: 100px;
+        font-size: 16px;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5%;
+    }
+    
+    .user-back .user-back-btn{
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        color: 'rgba(26, 0, 0, 1)';
+        background: #bdd4e7;
+        border: none;
+        border-radius: 1%;
+        margin: 5px 400px;
+        margin-top: 10px;
+        margin-left: 80px;
+    }
+}

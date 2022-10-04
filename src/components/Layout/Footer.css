@@ -1,0 +1,28 @@
+#myFooter{
+    background: #dce1eb;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: #e4e4e4;
+    margin-top: 100px;
+}
+
+.footer-content h3
+{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+    padding-top: 10px;
+}
+
+.footer-content p{
+    max-width: 600px;
+    line-height: 27px;
+    font-size: 15px;
+}

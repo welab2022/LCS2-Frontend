@@ -1,0 +1,159 @@
+.Navbar{
+    background-color: #dce1eb;
+    background-image: linear-gradient(90deg, #dce1eb 0%, #8693ab 90%);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn{
+    outline: none;
+    border: none;
+    font-size: 35px;
+    display: flex;
+}
+
+.fa-bars{
+    padding-top: 20px;
+}
+
+.dropdown-toggle{
+    padding-top: 32px;
+    padding-left: 60px;
+}
+
+.dropdown-menu {
+    padding: auto;
+}
+
+.search-container{
+    justify-content: center;
+    align-items: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: -1px;
+    margin-top: -1px;
+    transition: 1s;
+}
+
+.search-bar{
+    width: 1000px;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    border-radius: 40px;
+    padding: 12px 12px;
+    backdrop-filter: blur(4px) saturate(180%);
+}
+
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 2px 5px;
+}
+
+::placeholder{
+    color: black;
+    opacity: 50%;
+}
+
+.search-bar .btn{
+    border-radius: 50%;
+    width: 45px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 25px;
+    color: black;
+    opacity: 30%;
+}
+
+.search-bar .btn:hover{
+    opacity: 60%;
+}
+
+.User-account small{
+    display: inline-block;
+    color: var(--text-grey);
+    margin-top: -3px;
+}
+/* Dropdown Button */
+.dropbtn {
+    color: white;
+    padding: 0px;
+    font-size: 20px;
+    border: none;
+  }
+
+.User-account{
+    display: flex;
+    align-items: center;
+}
+
+.User-account img{
+    margin-right: 15px;
+}
+
+.account-dropdown {
+    position: relative;
+    display: inline-block;
+ }
+
+.account-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .account-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .account-content a:hover {background-color: #ddd;}
+ 
+  .account-dropdown:hover .account-content {display: block;}
+  
+  .account-dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  @media screen and (max-width: 1700px) {
+    .search-bar{
+        width: 1000px;
+     }
+  }
+
+  @media screen and (max-width: 1555px) {
+    .search-bar{
+        width: 790px;
+     }
+  }
+
+  @media screen and (max-width: 1400px) {
+    .search-bar{
+        width: 590px;
+     }
+}
+
+@media screen and (max-width: 1000px) {
+    .search-bar{
+        width: 390px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .search-bar{
+        display: none;
+    }
+}
+
+ 
