@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/*-----ROOT COLOURS VARIABLES-----*/
+:root{
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #12df9a;
+    --color-warning: #ffbb5;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132,139,200,0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius1: 0.4rem;
+    --border-radius2: 0.8rem;
+    --border-radius3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1 : 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(var(--color-light));
+}
+
+.card-top-student{
+    background: #efeff5;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    width: 98%;
+    margin-top: 40px;
+    margin-left: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.student-page{
+    display: flex;
+    margin: 0 -60px;
+}
+
+.delete3 .delete-btn3 {
+    width: 80px;
+    font-size:  15px;
+    height: 50px;
+    outline: none;
+    background-color: #bdcad9;
+    background-image: linear-gradient(315deg, #bdcad9 29%, #e1dada 65%);    
+    border: none;
+    border-radius: 10%;
+    margin: 5px;
+}
+
+.delete3 .delete-btn3:hover{
+    background: var(--color-danger);
+    font-size:  16px;
+    transition: all 250ms ease;
+}
+
+.update1 .update-student-btn {
+    font-size: 15px;
+    width: 80px;
+    height: 50px;
+    color: whitesmoke;
+    background: var(--color-success);
+    border: none;
+    border-radius: 10%;
+    margin: 5px;
+}
+
+.update1 .update-student-btn:hover{
+    background: #67e767;
+    font-size:  16px;
+    transition: all 250ms ease;
+}
+
+tbody, th{
+    text-align :left;
+}
+
+.new-student .new-student-btn {
+    font-size: 20px;
+    width: 180px;
+    height: 50px;
+    color: whitesmoke;
+    background: #bdd4e7;
+    border-top-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    margin-bottom: 40px;
+    justify-content: right;
+    margin-left: 1290px;
+}
+
+.new-student .new-student-btn:hover{
+    background: #96bfe0;
+    font-size:  21px;
+    transition: all 250ms ease;
+}
+
+.container-sm{
+    margin-top: 85px;
+}
+
+.create-back .create-btn{
+    font-size: 20px;
+    width: 400px;
+    height: 50px;
+    color: 'rgba(26, 0, 0, 1)';
+    background: #bdd4e7;
+    border: none;
+    border-radius: 1%;
+    margin: 5px 400px;
+}
+
+.create-back .create-btn:hover{
+    background: var(--color-success);
+    font-size:  21px;
+    transition: all 250ms ease;
+}
+
+.create-back .back-btn{
+    display: flex;
+    font-size: 20px;
+    width: 400px;
+    height: 50px;
+    background: #bdd4e7;
+    border: none;
+    margin: 5px 400px;
+    border-radius: 1%;
+    padding-top: 10px;
+    justify-content: center;
+}
+
+.create-back .back-btn:hover{
+    background: var(--color-danger);
+    font-size:  21px;
+    transition: all 250ms ease;
+}
+/*-----MEDIA-----*/
+@media screen and (min-width: 2000px) {
+    .class-page{
+        margin: 0 -50px;
+    }    
+}
+
+@media screen and (max-width: 1400px) {
+    .class-page{
+        margin: 0 -35px;
+    }    
+    .delete2 .delete-btn2 {
+        width: 60px;
+        font-size:  15px;
+        height: 50px;
+        outline: none;
+        background-color: #bdcad9;
+        background-image: linear-gradient(315deg, #bdcad9 29%, #e1dada 65%);    
+        border: none;
+        border-radius: 10%;
+        margin: 5px;
+    }
+    .update .update-btn {
+        font-size: 15px;
+        width: 60px;
+        height: 50px;
+        color: whitesmoke;
+        background: var(--color-success);
+        border: none;
+        border-radius: 10%;
+        margin: 5px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .class-page{
+        margin:0 -5px;
+    }    
+    .delete2 .delete-btn2 {
+        width: 55px;
+        font-size:  15px;
+        height: 50px;
+        outline: none;
+        background-color: #bdcad9;
+        background-image: linear-gradient(315deg, #bdcad9 29%, #e1dada 65%);    
+        border: none;
+        border-radius: 10%;
+        margin: 5px;
+    }
+    .update .update-btn {
+        font-size: 15px;
+        width: 55px;
+        height: 50px;
+        color: whitesmoke;
+        background: var(--color-success);
+        border: none;
+        border-radius: 10%;
+        margin: 5px;
+    }
+    .new-class .new-btn {
+        font-size: 18px;
+        width: 150px;
+        height: 50px;
+        color: whitesmoke;
+        background: #bdd4e7;
+        border-top-left-radius: 20%;
+        border-bottom-right-radius: 20%;
+        margin-bottom: 40px;
+        margin-right: 1700px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .class-page{
+        margin-left: 10px;
+    }    
+    .update, .delete2, .delete-btn2,.delete-btn2:hover,.update-btn:hover{
+    width: 0px; 
+    height: 0px;   
+    }
+    .delete2 .delete-btn2 {
+        display: none;
+    }
+    .update .update-btn {
+        display: none;
+    }
+    tbody, th{
+        text-align :left;
+        font-size: 11.5px;
+    }
+    .new-class .new-btn {
+        font-size: 15px;
+        width: 100px;
+        height: 50px;
+        color: whitesmoke;
+        background: #bdd4e7;
+        border-top-left-radius: 20%;
+        border-bottom-right-radius: 20%;
+        margin-bottom: 40px;
+        margin-right: 1700px;
+    }
+}
+
