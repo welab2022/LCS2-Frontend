@@ -1,6 +1,5 @@
-import { Routes ,Route,BrowserRouter } from 'react-router-dom';
+import { Routes ,Route } from 'react-router-dom';
 import LoginPage  from './components/pages/LoginPage';
-import MainPage  from './components/Layout/MainPage';
 import PrivateRoute from './components/Common/PrivateRoute';
 import NotFound  from './components/Common/NotFound';
 import Locations from './components/locations/Locations';
@@ -20,7 +19,7 @@ function App() {
   
   return (
    
-    <BrowserRouter>
+    
       <Routes>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/resetpassword/:id' element={<ResetPassword/>}/>
@@ -48,7 +47,6 @@ function App() {
         </Route>
       </Routes>
  
-      </BrowserRouter>
   );
 }
 

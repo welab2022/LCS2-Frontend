@@ -14,7 +14,7 @@ const schema = yup.object({
 }).required();
 
 const LoginPage = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const loginStatus = useSelector(state=>state.auth.status);
   const currentUser = useSelector(state=>state.auth.currentUser);
@@ -26,7 +26,7 @@ const LoginPage = () => {
       console.log(currentUser)
       localStorage.setItem('name',currentUser.name);
       localStorage.setItem('email',currentUser.email)
-      return navigate("/");
+      return navigate();
     }
     
   },[loginStatus])
@@ -34,7 +34,7 @@ const LoginPage = () => {
     dispatch(fetchLogin(JSON.stringify(data)));
   };
   return (
-  <body>    
+   
     <div className="Login">
       <div className='form-box'>
         <div className='button-box'>
@@ -54,13 +54,13 @@ const LoginPage = () => {
             <p>{errors.email?.message}</p>
             <input {...register("password")} type='password' className="input-box" placeholder='Enter your password' required></input>
             <p>{errors.password?.message}</p>
-            <button type='submit' className="submit-btn3">{loginStatus==='loading'?'Logging...':'Login'}</button>
+            <button type='submit' id="loginSubmit" className="submit-btn3">{loginStatus==='loading'?'Logging...':'Login'}</button>
             <a href="/forgotpassword" className='forgot'><i>Forgot your password ?</i></a>
          </form>
         </div> 
  <Footer />
       </div>
-  </body>
+  
  )
 }
 
