@@ -24,7 +24,7 @@ func main() {
 	// Heroku gets port to bind on from $PORT env value
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "80" // Default port if not specified
+		port = "8000" // Default port if not specified
 	}
 
 	log.Println("Mock API server starting on " + port + "...\n")
