@@ -1,29 +1,27 @@
 package middleware
 
 import (
-	"log"
 	"net/http"
-
-	h "github.com/welab2022/LCS2-Micro/mock-api/handlers"
+	// h "github.com/welab2022/LCS2-Frontend/mock-api/handlers"
 )
 
 func RequireSessionIdHeader(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		sessionId := r.Header.Get("SESSION-ID")
+		// sessionId := r.Header.Get("SESSION-ID")
 
-		log.Printf("Middleware: Session ID: %s\n", sessionId)
+		// log.Printf("Middleware: Session ID: %s\n", sessionId)
 
-		if sessionId != "" {
-			next.ServeHTTP(w, r)
-		} else {
-			// Write an error and stop the handler chain
-			handler := h.DummyHandler{
-				FilePath: "./schemas/frontend/session_id_error.json",
-				Status:   401,
-			}
+		// if sessionId != "" {
+		// 	next.ServeHTTP(w, r)
+		// } else {
+		// 	// Write an error and stop the handler chain
+		// 	handler := h.DummyHandler{
+		// 		FilePath: "./schemas/frontend/session_id_error.json",
+		// 		Status:   401,
+		// 	}
 
-			handler.ServeHTTP(w, r)
-		}
+		// 	handler.ServeHTTP(w, r)
+		// }
 
 		next.ServeHTTP(w, r)
 	})
