@@ -1,4 +1,2 @@
 github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
 github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
-github.com/jferrinho1/gophr-mock-api2 v0.0.0-20211117165212-fcb33a44dc60 h1:A9soGx1MANSufxsyqGkpdmrZmot3EAuD9F1JR4a95gI=
-github.com/jferrinho1/gophr-mock-api2 v0.0.0-20211117165212-fcb33a44dc60/go.mod h1:OQ0jW006b5pNljijTlddS1RHycGD9w6nRRH/0uYDAoc=

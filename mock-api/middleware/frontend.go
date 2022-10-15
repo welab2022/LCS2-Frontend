@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"github.com/gorilla/mux"
-	m "github.com/jferrinho1/gophr-mock-api2/middleware/frontend"
+	m "github.com/welab2022/LCS2-Frontend/mock-api/middleware/frontend"
 )
 
 func RegisterFrontendMiddleware(mux *mux.Router) {

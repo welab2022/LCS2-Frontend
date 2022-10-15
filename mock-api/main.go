@@ -7,9 +7,9 @@ import (
 
 	"github.com/gorilla/mux"
 
-	h "github.com/welab2022/LCS2-Micro/mock-api/handlers"
-	m "github.com/welab2022/LCS2-Micro/mock-api/middleware"
-	r "github.com/welab2022/LCS2-Micro/mock-api/routes"
+	h "github.com/welab2022/LCS2-Frontend/mock-api/handlers"
+	m "github.com/welab2022/LCS2-Frontend/mock-api/middleware"
+	r "github.com/welab2022/LCS2-Frontend/mock-api/routes"
 )
 
 func main() {

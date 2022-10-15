@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gorilla/mux"
-	h "github.com/jferrinho1/gophr-mock-api2/handlers"
+	h "github.com/welab2022/LCS2-Frontend/mock-api/handlers"
 )
 
 func RegisterErrorRoutes(mux *mux.Router) {
