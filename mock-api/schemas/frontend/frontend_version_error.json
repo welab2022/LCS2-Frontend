@@ -1,0 +1,5 @@
+{
+    "error": {
+        "message": "FRONTEND-VERSION header must be present and set to 2.0.20200626.1.5"
+    }
+}

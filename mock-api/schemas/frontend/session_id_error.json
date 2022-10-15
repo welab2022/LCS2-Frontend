@@ -1,0 +1,5 @@
+{
+    "error": {
+        "message": "SESSION-ID header must be present"
+    }
+}

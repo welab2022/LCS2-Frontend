@@ -1,0 +1,10 @@
+{
+    "data": [
+        {
+            "code": "200",
+            "email": "testuser1@test.com",
+            "message": "Authenticated success",
+            "access-token": "irC5Desr7U0w2/Y+AQ43KoA=="
+        }
+    ]
+}

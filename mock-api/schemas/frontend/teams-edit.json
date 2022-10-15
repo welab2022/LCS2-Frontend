@@ -1,0 +1,14 @@
+{
+    "data": {
+        "team_id": "123",
+        "team_name": "HelloFresh",
+        "team_info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget neque tristique ac quis mauris massa elit. Natoque at sit vitae condimentum tempor, tellus. Amet arcu.",
+        "team_members": [
+          { "member_id": "123", "email": "test@test.com", "permission": "viewer", "accepted": true },
+          { "member_id": "124", "email": "test2@test.com", "permission": "viewer", "accepted": false },
+          { "member_id": "125", "email": "test3@test.com", "permission": "admin", "accepted": false },
+          { "member_id": "127", "email": "test4@test.com", "permission": "viewer", "accepted": false },
+          { "member_id": "129", "email": "test5@test.com", "permission": "manager", "accepted": true }
+        ]
+    }
+}

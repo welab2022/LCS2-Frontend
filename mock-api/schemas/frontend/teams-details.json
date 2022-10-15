@@ -1,0 +1,8 @@
+{
+    "data": {
+        "team_id": "123",
+        "team_name": "HelloFresh",
+        "team_info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget neque tristique ac quis mauris massa elit. Natoque at sit vitae condimentum tempor, tellus. Amet arcu.",
+        "team_members": 8
+    }
+}

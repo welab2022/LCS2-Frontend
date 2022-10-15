@@ -1,0 +1,9 @@
+{
+    "data": [
+        {
+            "email": "testuser1@test.com",
+            "message": "Authenticated success",
+            "access_token": "irC5Desr7U0w2/Y+AQ43KoA=="
+        }
+    ]
+}

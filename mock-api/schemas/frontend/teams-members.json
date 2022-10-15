@@ -1,0 +1,57 @@
+{
+  "data": {
+    "team_id": "123",
+    "team_name": "HelloFresh",
+    "team_info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget neque tristique ac quis mauris massa elit. Natoque at sit vitae condimentum tempor, tellus. Amet arcu.",
+    "team_members": [
+      {
+        "member_id": "123",
+        "name": "Katy smith",
+        "email": "katysmith@gmail.com",
+        "img": "https://randomuser.me/api/portraits/women/65.jpg",
+        "permission": "viewer",
+        "accepted": true
+      },
+      {
+        "member_id": "124",
+        "name": "Lauren smith",
+        "email": "laurensmith@gmail.com",
+        "img": "https://randomuser.me/api/portraits/women/54.jpg",
+        "permission": "viewer",
+        "accepted": false
+      },
+      {
+        "member_id": "125",
+        "name": "Amy smith",
+        "email": "Amysmith@gmail.com",
+        "img": "https://randomuser.me/api/portraits/women/57.jpg",
+        "permission": "admin",
+        "accepted": false
+      },
+      {
+        "member_id": "127",
+        "name": "John baker",
+        "email": "johnbaker@gmail.com",
+        "img": "https://randomuser.me/api/portraits/men/43.jpg",
+        "permission": "viewer",
+        "accepted": false
+      },
+      {
+        "member_id": "129",
+        "name": "Tyrone Williams",
+        "email": "tyronewilliams@gmail.com",
+        "img": "https://randomuser.me/api/portraits/men/53.jpg",
+        "permission": "manager",
+        "accepted": true
+      },
+      {
+        "member_id": "129",
+        "name": "Jake Paul",
+        "email": "jakepaul@gmail.com",
+        "img": "https://randomuser.me/api/portraits/men/62.jpg",
+        "permission": "manager",
+        "accepted": true
+      }
+    ]
+  }
+}

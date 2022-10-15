@@ -1,0 +1,32 @@
+{
+    "data": 
+    [
+        {
+            "id": "c0283p3d0cvuglq85lpg",
+            "email": "testuser1@test.com",
+            "first_name": "User 1",
+            "last_name": "Test",
+            "created_at": "2021-01-17T19:28:52.803238+01:00",
+            "updated_at": "2021-01-17T19:28:52.803238+01:00",
+            "enabled": "yes"
+        },
+        {
+            "id": "c0283p3d0cvuglq85abv",
+            "email": "testuser2@test.com",
+            "first_name": "User 2",
+            "last_name": "Test",
+            "created_at": "2021-01-17T19:28:52.803238+01:00",
+            "updated_at": "2021-01-17T19:28:52.803238+01:00",
+            "enabled": "yes"
+        },
+        {
+            "id": "c0283p3d0cvuglq85lr0",
+            "email": "testuser3@test.com",
+            "first_name": "User 3",
+            "last_name": "Test",
+            "created_at": "2021-01-17T19:28:52.803238+01:00",
+            "updated_at": "2021-01-17T19:28:52.803238+01:00",
+            "enabled": "yes"
+        }
+    ]
+}

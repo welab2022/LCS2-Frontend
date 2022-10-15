@@ -1,0 +1,8 @@
+{
+    "data": [
+        {
+            "code": "401",
+            "message": "Authentication is required"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+  "data": {
+    "member_id": "123",
+    "team_name": "HelloFresh",
+    "name": "Katy smith",
+    "email": "katysmith@gmail.com",
+    "img": "https://randomuser.me/api/portraits/women/65.jpg",
+    "permission": "viewer",
+    "accepted": true,
+    "mobile_number": "7927382938",
+    "phone_number": "7293827385",
+    "language": "English",
+    "timezone": "Europe/London"
+  }
+}
