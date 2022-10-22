@@ -2,16 +2,22 @@ import React from "react";
 import { SearchOutlined, BellOutlined } from "@ant-design/icons";
 import { Layout, AutoComplete, Input, Avatar, Menu, Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
+import useLocalStore from "../hook/useLocalStorage";
+import axiosClient from "../api/axiosClient";
 
 export const Header = () => {
   let navigate = useNavigate();
+  const { name } = useLocalStore();
 
   const opts = [
     {
       title: "Logout",
       cb: () => {
+        axiosClient.post("/logout");
         window.localStorage.removeItem("email");
-        window.localStorage.removeItem("access-token");
+        window.localStorage.removeItem("API");
+        window.localStorage.removeItem("name");
+
         navigate("/");
       },
     },
@@ -59,7 +65,7 @@ export const Header = () => {
             />
           </Dropdown>
 
-          <span className="ml-2 font-bold">Hoang Van Hung</span>
+          <span className="ml-2 font-bold">{name}</span>
         </div>
       </div>
     </Layout.Header>
