@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   app:
@@ -16,4 +16,4 @@ services:
       dockerfile: ./mock-api.dockerfile
     restart: always
     ports:
-      - "9000:80"
+      - "9100:80"
