@@ -1,12 +1,13 @@
 import axios from "axios";
 
 const API = localStorage.getItem("API");
+console.log({ API });
 const axiosClient = axios.create({
   withCredentials: true,
   baseURL: "http://localhost:8081",
   headers: {
     "content-type": "application/json",
-    Authorization: `${API}`,
+    "X-API-KEY": "sWOmNsF8Ht9lE9wMU9cW7w==n",
   },
 });
 // // Add a request interceptor
