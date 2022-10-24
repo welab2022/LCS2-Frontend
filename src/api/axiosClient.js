@@ -1,15 +1,19 @@
 import axios from "axios";
 
+const API = localStorage.getItem("API");
+console.log({ API });
 const axiosClient = axios.create({
-    baseURL: 'http://localhost:8000',
-    headers: {
-        'content-type': 'application/json',
-    }
+  withCredentials: true,
+  baseURL: "http://localhost:8081",
+  headers: {
+    "content-type": "application/json",
+    "X-API-KEY": "sWOmNsF8Ht9lE9wMU9cW7w==n",
+  },
 });
 // // Add a request interceptor
 // axiosClient.interceptors.request.use(function (config) {
 //     // Do something before request is sent
-    
+
 //     return config;
 //   }, function (error) {
 //     // Do something with request error
@@ -26,5 +30,5 @@ const axiosClient = axios.create({
 //     // Do something with response error
 //     return Promise.reject(error);
 //   });
-  
-  export default axiosClient;
+
+export default axiosClient;

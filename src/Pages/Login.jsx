@@ -7,7 +7,7 @@ import axiosClient from "../api/axiosClient";
 export const Login = () => {
   let navigate = useNavigate();
   const auth = useMutation((values) => {
-    return axiosClient.post("/frontend/login", values);
+    return axiosClient.post("/signin", values);
   });
 
   const onFinish = (values) => {
@@ -16,9 +16,15 @@ export const Login = () => {
 
   React.useEffect(() => {
     if (auth.isSuccess) {
-      const user = auth.data.data.data[0];
-      localStorage.setItem("email", user.email);
-      localStorage.setItem("access-token", user["access-token"]);
+      console.log(auth.data.data);
+      const user = auth.data.data;
+      localStorage.setItem("email", user.Data.email);
+      localStorage.setItem(
+        "name",
+        `${user.Data.first_name} ${user.Data.last_name}`
+      );
+      localStorage.setItem("API", user.API);
+
       navigate("/");
     }
   }, [auth]);
