@@ -65,7 +65,10 @@ export const Header = () => {
             />
           </Dropdown>
 
-          <span className="ml-2 font-bold">{name}</span>
+          <span id="login" className="ml-2 font-bold">
+            {name}
+          </span>
+
         </div>
       </div>
     </Layout.Header>
