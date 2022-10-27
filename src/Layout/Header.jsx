@@ -68,6 +68,7 @@ export const Header = () => {
           <span id="login" className="ml-2 font-bold">
             {name}
           </span>
+
         </div>
       </div>
     </Layout.Header>
