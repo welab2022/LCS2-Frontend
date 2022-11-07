@@ -2,6 +2,7 @@
 up: down
 	@echo "Start docker containers..."
 	docker compose up --build -d
+	# docker compose up -d
 	@echo "Done"
 
 .PHONY: down 

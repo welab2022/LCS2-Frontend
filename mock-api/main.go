@@ -3,7 +3,6 @@ package main
 import (
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/gorilla/mux"
 
@@ -11,6 +10,8 @@ import (
 	m "github.com/welab2022/LCS2-Frontend/mock-api/middleware"
 	r "github.com/welab2022/LCS2-Frontend/mock-api/routes"
 )
+
+const webPort = "80"
 
 func main() {
 
@@ -22,14 +23,14 @@ func main() {
 	registerMobileRoutes(mux)
 
 	// Heroku gets port to bind on from $PORT env value
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8000" // Default port if not specified
-	}
+	// port := os.Getenv("MOCKAPI_PORT")
+	// if port == "" {
+	// 	port = "80" // Default port if not specified
+	// }
 
-	log.Println("Mock API server starting on " + port + "...\n")
+	log.Println("Mock API server starting on " + webPort + "...\n")
 
-	err := http.ListenAndServe(":"+port, mux)
+	err := http.ListenAndServe(":"+webPort, mux)
 	if err != nil {
 		log.Panic(err)
 	}
