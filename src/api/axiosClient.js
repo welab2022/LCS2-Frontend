@@ -6,8 +6,8 @@ const axiosClient = axios.create({
   withCredentials: true,
 
   headers: {
-    "content-type": "application/json",
-    "X-API-KEY": "sWOmNsF8Ht9lE9wMU9cW7w==n",
+    "Content-type": "application/json",
+    "X-API-KeY": "sWOmNsF8Ht9lE9wMU9cW7w==n",
   },
 });
 // // Add a request interceptor
