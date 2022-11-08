@@ -8,6 +8,8 @@ services:
       dockerfile: ./app-ui.dockerfile
     ports:
       - "8080:3000"
+    volumes:
+      - ./src:/app/src
 
   mock-api:
     container_name: mock-api-service
