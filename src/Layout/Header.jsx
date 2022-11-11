@@ -3,7 +3,6 @@ import { SearchOutlined, BellOutlined } from "@ant-design/icons";
 import { Layout, AutoComplete, Input, Avatar, Menu, Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
 import useLocalStore from "../hook/useLocalStorage";
-import axiosClient from "../api/axiosClient";
 
 export const Header = () => {
   let navigate = useNavigate();
@@ -13,7 +12,6 @@ export const Header = () => {
     {
       title: "Logout",
       cb: () => {
-        axiosClient.post("/logout");
         window.localStorage.removeItem("email");
         window.localStorage.removeItem("API");
         window.localStorage.removeItem("name");
@@ -68,7 +66,6 @@ export const Header = () => {
           <span id="login" className="ml-2 font-bold">
             {name}
           </span>
-
         </div>
       </div>
     </Layout.Header>

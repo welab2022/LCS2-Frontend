@@ -1,37 +1,48 @@
 import React from "react";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
-import { useMutation } from "@tanstack/react-query";
-import axiosClient from "../api/axiosClient";
+import { usePost } from "../api";
 
 export const Login = () => {
   let navigate = useNavigate();
-  const auth = useMutation((values) => {
-    return axiosClient.post("http://localhost:8081/api/auth/signin", values);
-  });
-
+  const { fetchPost, isLoading, isError, result } = usePost();
   const onFinish = (values) => {
-    auth.mutate(values);
-  };
+    const data = fetchPost("auth/signin", values);
 
+    // const response = await fetch("http://localhost:8081/api/auth/signin", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-type": "application/json",
+    //     "X-API-Key": "sWOmNsF8Ht9lE9wMU9cW7w==n",
+    //   },
+    //   credentials: "include",
+    //   body: JSON.stringify(values),
+    // }).then((res) => res.json());
+    // console.log(response);
+    // const listUser = await fetch("http://localhost:8081/api/auth/listusers", {
+    //   headers: {
+    //     "Content-type": "application/json",
+    //     "X-API-Key": "sWOmNsF8Ht9lE9wMU9cW7w==n",
+    //   },
+    //   credentials: "include",
+    // });
+    // console.log({ listUser });
+  };
   React.useEffect(() => {
-    if (auth.isSuccess) {
-      console.log(auth.data.data);
-      const user = auth.data.data;
-      localStorage.setItem("email", user.Data.email);
+    if (result.Status === "success") {
+      localStorage.setItem("email", result.Data.email);
       localStorage.setItem(
         "name",
-        `${user.Data.first_name} ${user.Data.last_name}`
+        `${result.Data.first_name} ${result.Data.last_name}`
       );
-      localStorage.setItem("API", user.API);
-
       navigate("/");
     }
-  }, [auth]);
+  }, [result, navigate]);
+
   return (
     <div className="relative w-screen min-h-screen m-0 p-0 bg-[#e5e7eb]">
       <div className="absolute w-[500px] m-auto top-[150px] left-0 right-0 pt-[100px] pb-[100px] pl-[50px] pr-[50px] bg-[white]">
-        {auth.error && (
+        {isError && (
           <div className="text-center text-[red] text-[20px] font-bold">
             Login failed, please try again!
           </div>
@@ -64,21 +75,13 @@ export const Login = () => {
             <Input.Password placeholder="Enter your password" />
           </Form.Item>
 
-          <Form.Item
-            name="remember"
-            valuePropName="checked"
-            wrapperCol={{ offset: 6, span: 18 }}
-          >
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
           <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
             <Button
               id="login"
               type="primary"
               htmlType="submit"
               style={{ width: "100%" }}
-              loading={auth.isLoading}
+              loading={isLoading}
             >
               Login
             </Button>

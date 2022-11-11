@@ -2,11 +2,10 @@ import React from "react";
 import { Menu, Layout } from "antd";
 import {
   DesktopOutlined,
-  FileOutlined,
   CompassOutlined,
-  TeamOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import { useNavigate } from "react-router";
 
 function getItem(label, key, icon, children) {
   return {
@@ -17,21 +16,13 @@ function getItem(label, key, icon, children) {
   };
 }
 const items = [
-  getItem("Locations", "1", <CompassOutlined />),
-  getItem("Classes", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
-  ]),
-  getItem("Files", "9", <FileOutlined />),
+  getItem("Locations", "location", <CompassOutlined />),
+  getItem("Classes", "class", <DesktopOutlined />),
+  getItem("User", "user", <UserOutlined />),
 ];
 export const Sider = () => {
   const [collapsed, setCollapsed] = React.useState(false);
+  const navigate = useNavigate();
   return (
     <Layout.Sider
       theme="light"
@@ -45,6 +36,15 @@ export const Sider = () => {
         defaultSelectedKeys={["1"]}
         mode="inline"
         items={items}
+        onClick={(item) => {
+          switch (item.key) {
+            case "user":
+              navigate("/users");
+              break;
+            default:
+              navigate("/locations");
+          }
+        }}
       />
     </Layout.Sider>
   );
