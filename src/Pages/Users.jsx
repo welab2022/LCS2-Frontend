@@ -1,13 +1,26 @@
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { Breadcrumb, Space, Table, Button, Modal } from "antd";
+import { Breadcrumb, Space, Table, Button, Modal, notification } from "antd";
 import React from "react";
-import { useGet } from "../api";
+import { useGet, usePost } from "../api";
+import { useNavigate } from "react-router-dom";
 
 import { Layout } from "../Layout/Layout";
 
 export const Users = () => {
+  let navigate = useNavigate();
+  const {
+    fetchPost,
+    isLoading: resetPasswordLoading,
+    result: resetPasswordResult,
+  } = usePost();
   const { confirm } = Modal;
-  const { fetchGet, isLoading, isError, result } = useGet();
+  const { fetchGet, isLoading, result } = useGet();
+  const openNotificationWithIcon = (type, message = "", des = "") => {
+    notification[type]({
+      message: message,
+      description: des,
+    });
+  };
   const showConfirm = () => {
     confirm({
       title: "Do you Want to delete this loaction?",
@@ -20,8 +33,11 @@ export const Users = () => {
       },
     });
   };
-
-  const addUser = () => {};
+  const resetPassword = (email) => {
+    fetchPost("auth/resetpwd", {
+      email: email,
+    });
+  };
   const columns = [
     {
       title: "User",
@@ -43,7 +59,9 @@ export const Users = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <Button>update</Button>
+          <Button onClick={() => resetPassword(record.email)}>
+            Reset password
+          </Button>
           <Button onClick={showConfirm}>Delete</Button>
         </Space>
       ),
@@ -51,18 +69,26 @@ export const Users = () => {
   ];
   React.useEffect(() => {
     fetchGet("auth/listusers");
+    // eslint-disable-next-line
   }, []);
-  console.log({ result });
+  React.useEffect(() => {
+    if (resetPasswordResult.error) {
+      openNotificationWithIcon("error", resetPasswordResult.error);
+    }
+  }, [resetPasswordResult]);
   return (
     <Layout>
       <Breadcrumb style={{ marginLeft: "16px" }}>
         <Breadcrumb.Item>Users</Breadcrumb.Item>
       </Breadcrumb>
       <div className="p-[24px] min-h-[360px] bg-white m-[24px]">
+        <Button onClick={() => navigate("/users/add")} type="primary" danger>
+          add user
+        </Button>
         <div>
           {result && (
             <Table
-              loading={isLoading}
+              loading={isLoading || resetPasswordLoading}
               columns={columns}
               dataSource={result.error ? null : result}
             />

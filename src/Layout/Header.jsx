@@ -3,20 +3,30 @@ import { SearchOutlined, BellOutlined } from "@ant-design/icons";
 import { Layout, AutoComplete, Input, Avatar, Menu, Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
 import useLocalStore from "../hook/useLocalStorage";
+import { usePost } from "../api";
 
 export const Header = () => {
   let navigate = useNavigate();
-  const { name } = useLocalStore();
+  const { name, email } = useLocalStore();
+  const { fetchPost } = usePost();
 
   const opts = [
     {
       title: "Logout",
       cb: () => {
+        fetchPost("auth/logout", {
+          email: email,
+        });
         window.localStorage.removeItem("email");
-        window.localStorage.removeItem("API");
         window.localStorage.removeItem("name");
 
         navigate("/");
+      },
+    },
+    {
+      title: "Change password",
+      cb: () => {
+        navigate("/changepassword");
       },
     },
   ];

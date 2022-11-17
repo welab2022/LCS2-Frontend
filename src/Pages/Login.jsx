@@ -7,26 +7,7 @@ export const Login = () => {
   let navigate = useNavigate();
   const { fetchPost, isLoading, isError, result } = usePost();
   const onFinish = (values) => {
-    const data = fetchPost("auth/signin", values);
-
-    // const response = await fetch("http://localhost:8081/api/auth/signin", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //     "X-API-Key": "sWOmNsF8Ht9lE9wMU9cW7w==n",
-    //   },
-    //   credentials: "include",
-    //   body: JSON.stringify(values),
-    // }).then((res) => res.json());
-    // console.log(response);
-    // const listUser = await fetch("http://localhost:8081/api/auth/listusers", {
-    //   headers: {
-    //     "Content-type": "application/json",
-    //     "X-API-Key": "sWOmNsF8Ht9lE9wMU9cW7w==n",
-    //   },
-    //   credentials: "include",
-    // });
-    // console.log({ listUser });
+    fetchPost("auth/signin", values);
   };
   React.useEffect(() => {
     if (result.Status === "success") {
