@@ -22,7 +22,6 @@ export const Locations = () => {
     });
   };
 
-  const addUser = () => {};
   const columns = [
     {
       title: "LocationID",
@@ -95,9 +94,7 @@ export const Locations = () => {
           {" "}
           Export to PDF{" "}
         </Button>
-        <Button onClick={addUser} type="primary" danger>
-          add user
-        </Button>
+
         <div ref={componentRef}>
           <Table
             loading={isLoading}

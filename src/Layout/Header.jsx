@@ -11,13 +11,14 @@ import {
 } from "antd";
 import { useNavigate } from "react-router-dom";
 import useLocalStore from "../hook/useLocalStorage";
-import axios from "axios";
+import { usePost } from "../api";
 
 export const Header = () => {
   let navigate = useNavigate();
   const [openModal, setOpenModal] = React.useState(false);
   const [file, setFile] = React.useState();
-  const { name } = useLocalStore();
+  const { name, email } = useLocalStore();
+  const { fetchPost } = usePost();
 
   const opts = [
     {
@@ -29,10 +30,18 @@ export const Header = () => {
     {
       title: "Logout",
       cb: () => {
+        fetchPost("auth/logout", {
+          email: email,
+        });
         window.localStorage.removeItem("email");
-        window.localStorage.removeItem("API");
         window.localStorage.removeItem("name");
         navigate("/");
+      },
+    },
+    {
+      title: "Change password",
+      cb: () => {
+        navigate("/changepassword");
       },
     },
   ];
@@ -80,17 +89,29 @@ export const Header = () => {
     });
   };
   return (
-    <div>
+    <>
       <Layout.Header>
         <div className="flex justify-between items-center w-full max-h-[64px]">
           <div className="flex justify-between items-center w-[400px]">
             <div className="flex justify-between font-bold text-[32px] text-center  text-[white]  ">
               LCS
             </div>
-            <AutoComplete style={{ width: "100%", maxWidth: "250px" }}>
+            <AutoComplete
+              style={{ width: "100%", maxWidth: "250px" }}
+              // filterOption={false}
+              // options={options}
+              // onSearch={(value) => setValue(value)}
+              // onSelect={(_val, option) => {
+              //   push(option.label.props.to);
+              // }}
+            >
               <Input suffix={<SearchOutlined />} placeholder="Quick search" />
             </AutoComplete>
           </div>
+
+          {/* <Dropdown  placement="bottomRight" arrow>
+      
+    </Dropdown> */}
           <div className="text-[white] max-h-[64px]">
             <BellOutlined className="text-[32px] mr-4" />
             <Dropdown overlay={profile} placement="bottomRight" arrow>
@@ -105,6 +126,7 @@ export const Header = () => {
             </span>
           </div>
         </div>
+        {menu}
       </Layout.Header>
       <Modal
         title="Edit your profile"
@@ -128,6 +150,6 @@ export const Header = () => {
           />
         </div>
       </Modal>
-    </div>
+    </>
   );
 };
