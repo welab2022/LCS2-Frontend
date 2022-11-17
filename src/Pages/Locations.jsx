@@ -2,7 +2,7 @@ import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { Breadcrumb, Space, Table, Button, Modal } from "antd";
 import React, { useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
-import axiosClient from "../api/axiosClient";
+import { axiosAuthorized } from "../api/axiosClient";
 import { CSVLink } from "react-csv";
 import { useReactToPrint } from "react-to-print";
 import { Layout } from "../Layout/Layout";
@@ -22,7 +22,6 @@ export const Locations = () => {
     });
   };
 
-  const addUser = () => {};
   const columns = [
     {
       title: "LocationID",
@@ -59,7 +58,7 @@ export const Locations = () => {
   const { isLoading, error, data } = useQuery(
     ["getLocation"],
     async () => {
-      return await axiosClient.get("/locations");
+      return await axiosAuthorized.get("/locations");
     },
     {
       onSuccess: (res) => {
@@ -82,7 +81,7 @@ export const Locations = () => {
         <Breadcrumb.Item>Locations</Breadcrumb.Item>
       </Breadcrumb>
       <div className="p-[24px] min-h-[360px] bg-white m-[24px]">
-        {data?.data && (
+        {data?.data && !error && (
           <CSVLink
             filename={"Location.csv"}
             data={data?.data}
@@ -95,9 +94,7 @@ export const Locations = () => {
           {" "}
           Export to PDF{" "}
         </Button>
-        <Button onClick={addUser} type="primary" danger>
-          add user
-        </Button>
+
         <div ref={componentRef}>
           <Table
             loading={isLoading}

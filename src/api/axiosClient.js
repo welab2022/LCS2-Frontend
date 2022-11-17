@@ -1,15 +1,21 @@
 import axios from "axios";
 
-const API = localStorage.getItem("API");
-console.log({ API });
-const axiosClient = axios.create({
-  withCredentials: true,
-
+const axiosSignin = axios.create({
+  baseURL: "http://localhost:8081/api",
   headers: {
-    "Content-type": "application/json",
-    "X-API-KeY": "sWOmNsF8Ht9lE9wMU9cW7w==n",
+    "content-type": "application/json",
+    "X-API-KEY": "sWOmNsF8Ht9lE9wMU9cW7w==n",
   },
 });
+const axiosAuthorized = axios.create({
+  baseURL: "http://localhost:8081/api",
+  headers: {
+    "content-type": "application/json",
+    withCredentials: true,
+    "X-API-KEY": "sWOmNsF8Ht9lE9wMU9cW7w==n",
+  },
+});
+
 // // Add a request interceptor
 // axiosClient.interceptors.request.use(function (config) {
 //     // Do something before request is sent
@@ -31,4 +37,4 @@ const axiosClient = axios.create({
 //     return Promise.reject(error);
 //   });
 
-export default axiosClient;
+export { axiosSignin, axiosAuthorized };
