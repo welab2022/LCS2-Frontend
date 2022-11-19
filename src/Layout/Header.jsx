@@ -20,8 +20,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import useLocalStore from "../hook/useLocalStorage";
 import { usePost } from "../api";
-import { useMutation } from "@tanstack/react-query";
-import { uploadAvatarMutation } from "../api/uploadAvatar";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { getAdminInfoQuery, uploadAvatarMutation } from "../api/uploadAvatar";
 
 export const Header = () => {
   let navigate = useNavigate();
@@ -30,11 +30,19 @@ export const Header = () => {
   const { name, email } = useLocalStore();
   const { fetchPost } = usePost();
   const { mutateAsync: handleUploadApi } = useMutation(uploadAvatarMutation);
+  const { data, refetch: getAdminInfo } = useQuery(
+    ["getAdminInfo"],
+    () => getAdminInfoQuery({ email }),
+    {
+      enabled: false,
+    }
+  );
   const opts = [
     {
       title: "Edit Profile",
       cb: () => {
         setOpenModal(true);
+        getAdminInfo();
       },
     },
     {
@@ -55,6 +63,21 @@ export const Header = () => {
       },
     },
   ];
+  const itemDropdownUpload = (
+    <div className="bg-gray-300 ">
+      <label
+        className="cursor-pointer"
+        onChange={(e) => setFile(e.target.files[0])}
+        htmlFor="file-upload"
+      >
+        Change Photo
+        <input name="" type="file" id="file-upload" hidden />
+      </label>
+      <p className="cursor-pointer" onClick={() => setFile()}>
+        Remove Photo
+      </p>
+    </div>
+  );
   const menu = (
     <Menu>
       {opts.map((item, key) => {
@@ -89,20 +112,7 @@ export const Header = () => {
     await handleUploadApi({ formData });
     setOpenModal(false);
   };
-  const onPreview = async (file) => {
-    let src = file.url;
-    if (!src) {
-      src = await new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file.originFileObj);
-        reader.onload = () => resolve(reader.result);
-      });
-    }
-    const image = new Image();
-    image.src = src;
-    const imgWindow = window.open(src);
-    imgWindow?.document.write(image.outerHTML);
-  };
+
   return (
     <>
       <Layout.Header>
@@ -139,59 +149,59 @@ export const Header = () => {
         okText={<div>Edit</div>}
       >
         <div className="p-4">
+          <p>Profile Photo</p>
           <div className="flex items-center">
             <div>
               <p className="font-semibold">Upload avatar</p>
-              <Upload
-                name="originalFileName"
-                beforeUpload={() => {
-                  return false;
-                }}
-                onPreview={onPreview}
-                showUploadList={false}
-                onChange={(e) => {
-                  setFile(e.file);
-                }}
-              >
-                {file ? (
-                  <img
-                    src={URL.createObjectURL(file)}
-                    alt="avatar"
-                    className="w-[100px] h-[100px] object-cover"
-                  />
-                ) : (
-                  <div className="w-[100px] h-[100px] flex justify-center items-center bg-gray-300">
-                    <PlusOutlined className="mr-1" /> Upload
+              <div className="flex items-center">
+                <Dropdown overlay={itemDropdownUpload} placement="topRight">
+                  <div>
+                    {file ? (
+                      <img
+                        className="w-[100px] h-[100px] object-cover"
+                        src={URL.createObjectURL(file)}
+                        alt="avatar"
+                      />
+                    ) : (
+                      <div className="w-[100px] h-[100px] flex justify-center items-center bg-gray-300">
+                        <PlusOutlined className="mr-1" /> Upload
+                      </div>
+                    )}
                   </div>
-                )}
-              </Upload>
-            </div>
-            <div className="ml-8">
-              <Button onClick={() => setFile()}>Delete Image</Button>
+                </Dropdown>
+                <p className="ml-[30px]">{data?.data?.email}</p>
+              </div>
             </div>
           </div>
+          <p className="border-t-[1px] border-gray-200 mt-[10px]">About you</p>
           <div className="mt-2">
-            <p className="font-semibold">Username</p>
-            <Input placeholder="Username" />
+            <p className="font-semibold">Full name</p>
+            <Input
+              placeholder="Full name"
+              value={data?.data?.first_name + " " + data?.data?.last_name}
+            />
           </div>
           <div>
             <p className="font-semibold">Password</p>
-            <Input.Password
-              placeholder="Password"
-              iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-              }
-            />
+            <div className="flex justify-between">
+              <Input.Password
+                style={{ width: 250 }}
+                placeholder="Password"
+                iconRender={(visible) =>
+                  visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                }
+              />
+              <Button>Change Password</Button>
+            </div>
           </div>
-          <div>
-            <p className="font-semibold">Confirm Password</p>
-            <Input.Password
-              placeholder="Confirm Password"
-              iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-              }
-            />
+          <div className="flex justify-center mt-[20px]">
+            <p className="text-[10px]">Learning System Center</p>
           </div>
+          <p>Last login: {data?.data?.last_login?.split("T")[0]}</p>
+          <p>
+            Password changed at:{" "}
+            {data?.data?.password_changed_at?.split("T")[0]}
+          </p>
         </div>
       </Modal>
     </>
