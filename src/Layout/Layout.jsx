@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "./Header";
+import { Header } from "./header/Header";
 import { Sider } from "./Sider";
 import { Footer } from "./Footer";
 import { Layout as AntLayout } from "antd";
