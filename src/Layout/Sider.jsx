@@ -1,10 +1,6 @@
 import React from "react";
 import { Menu, Layout } from "antd";
-import {
-  DesktopOutlined,
-  CompassOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { DesktopOutlined, CompassOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router";
 
 function getItem(label, key, icon, children) {
@@ -18,7 +14,6 @@ function getItem(label, key, icon, children) {
 const items = [
   getItem("Locations", "location", <CompassOutlined />),
   getItem("Classes", "class", <DesktopOutlined />),
-  getItem("User", "user", <UserOutlined />),
 ];
 export const Sider = () => {
   const [collapsed, setCollapsed] = React.useState(false);
@@ -38,9 +33,6 @@ export const Sider = () => {
         items={items}
         onClick={(item) => {
           switch (item.key) {
-            case "user":
-              navigate("/users");
-              break;
             default:
               navigate("/locations");
           }

@@ -15,7 +15,7 @@ const App = () => {
         path="/"
         element={
           <PrivatePage>
-            <Users />
+            <Locations />
           </PrivatePage>
         }
       ></Route>
