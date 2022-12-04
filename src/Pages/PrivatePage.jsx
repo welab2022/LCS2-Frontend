@@ -3,10 +3,11 @@ import { useNavigate } from "react-router";
 
 export const PrivatePage = ({ children }) => {
   const navigate = useNavigate();
-  const isLogin = localStorage.getItem("email");
-  React.useEffect(() => {
-    if (!isLogin) navigate("login");
-  }, [isLogin, navigate]);
+  const email = localStorage.getItem("email");
 
-  return isLogin && children;
+  React.useEffect(() => {
+    if (!email) navigate("login");
+  }, [email, navigate]);
+
+  return email && children;
 };

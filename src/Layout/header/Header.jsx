@@ -9,6 +9,7 @@ import {
   Dropdown,
   notification,
 } from "antd";
+import logo from "../../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
 import useLocalStore from "../../hook/useLocalStorage";
 import { usePost } from "../../api";
@@ -33,6 +34,11 @@ export const Header = () => {
       enabled: false,
     }
   );
+  const {
+    fetchPost: fetchResetPassword,
+    // isLoading: resetPasswordLoading,
+    result: resetPasswordResult,
+  } = usePost();
   const { data: resultAvatar, refetch: getAvatar } = useQuery(
     ["getAdminAvatar"],
     () => getAdminAvatar({ email }),
@@ -40,6 +46,11 @@ export const Header = () => {
       enabled: false,
     }
   );
+  const resetPassword = (email) => {
+    fetchResetPassword("auth/resetpwd", {
+      email: email,
+    });
+  };
   const opts = [
     {
       title: "Edit Profile",
@@ -65,12 +76,31 @@ export const Header = () => {
         navigate("/changepassword");
       },
     },
+    {
+      title: "Reset password",
+      cb: () => {
+        resetPassword(email);
+      },
+    },
   ];
+  if (email === "admin@example.com") {
+    opts.push({
+      title: "Users",
+      cb: () => {
+        navigate("/users");
+      },
+    });
+  }
   //useEffect
   React.useEffect(() => {
     getAvatar();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  React.useEffect(() => {
+    if (resetPasswordResult.error) {
+      openNotificationWithIcon("error", resetPasswordResult.error);
+    }
+  }, [resetPasswordResult]);
   //render item
 
   const menu = (
@@ -87,7 +117,10 @@ export const Header = () => {
   const profile = (
     <div className="p-4 w-[300px] border-[1px] border-black bg-white">
       <p>Account</p>
-      <div className="flex justify-between border-b-[1px]">
+      <div
+        onClick={() => navigate("/")}
+        className="flex justify-between border-b-[1px] cursor-pointer"
+      >
         <Avatar size="large" src={resultAvatar?.data?.Base64} />
         <div>
           <p>Nguyen quoc dung</p>
@@ -111,15 +144,20 @@ export const Header = () => {
       <Layout.Header>
         <div className="flex justify-between items-center w-full max-h-[64px]">
           <div className="flex justify-between items-center w-[400px]">
-            <div className="flex justify-between font-bold text-[32px] text-center  text-[white]  ">
-              LCS
+            <div className="flex justify-between items-center">
+              <Avatar size="large" shape="square" src={logo} />
+              <span className="font-bold text-[32px] text-center ml-3 text-[white]">
+                LCS
+              </span>
             </div>
-            <AutoComplete style={{ width: "100%", maxWidth: "250px" }}>
-              <Input suffix={<SearchOutlined />} placeholder="Quick search" />
-            </AutoComplete>
           </div>
 
           <div className="text-[white] max-h-[64px]">
+            <AutoComplete
+              style={{ width: "100%", maxWidth: "250px", marginRight: "20px" }}
+            >
+              <Input suffix={<SearchOutlined />} placeholder="Quick search" />
+            </AutoComplete>
             <BellOutlined className="text-[32px] mr-4" />
             <Dropdown overlay={profile} placement="bottomRight" arrow>
               <Avatar size="large" src={resultAvatar?.data?.Base64} />

@@ -7,6 +7,7 @@ import { Layout } from "../Layout/Layout";
 export const AddUser = () => {
   let navigate = useNavigate();
   const { fetchPost, isLoading, result } = usePost();
+  const email = localStorage.getItem("email");
   const openNotificationWithIcon = (type, message = "", des = "") => {
     notification[type]({
       message: message,
@@ -16,6 +17,12 @@ export const AddUser = () => {
   const onFinish = (values) => {
     fetchPost("auth/adduser", values);
   };
+
+  React.useEffect(() => {
+    if (email !== "admin@example.com") {
+      navigate("/");
+    }
+  }, [email, navigate]);
   React.useEffect(() => {
     if (result.Status === "error") {
       openNotificationWithIcon("error", result.Message);
@@ -28,7 +35,7 @@ export const AddUser = () => {
     <Layout>
       <div className="relative w-screen min-h-screen m-0 p-0 bg-[#e5e7eb]">
         <div className="absolute w-[700px] m-auto top-[150px] left-0 right-0 pt-[100px] pb-[100px] pl-[50px] pr-[50px] bg-[white]">
-          <h1 className="text-center text-[40px] mb-[30px]">Change password</h1>
+          <h1 className="text-center text-[40px] mb-[30px]">Add User</h1>
 
           <Form
             name="AddUser"

@@ -1,26 +1,18 @@
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { Breadcrumb, Space, Table, Button, Modal, notification } from "antd";
+import { Breadcrumb, Space, Table, Button, Modal } from "antd";
 import React from "react";
-import { useGet, usePost } from "../api";
+import { useGet } from "../api";
 import { useNavigate } from "react-router-dom";
 
 import { Layout } from "../Layout/Layout";
 
 export const Users = () => {
   let navigate = useNavigate();
-  const {
-    fetchPost,
-    isLoading: resetPasswordLoading,
-    result: resetPasswordResult,
-  } = usePost();
+
   const { confirm } = Modal;
   const { fetchGet, isLoading, result } = useGet();
-  const openNotificationWithIcon = (type, message = "", des = "") => {
-    notification[type]({
-      message: message,
-      description: des,
-    });
-  };
+
+  const email = localStorage.getItem("email");
   const showConfirm = () => {
     confirm({
       title: "Do you Want to delete this loaction?",
@@ -33,11 +25,7 @@ export const Users = () => {
       },
     });
   };
-  const resetPassword = (email) => {
-    fetchPost("auth/resetpwd", {
-      email: email,
-    });
-  };
+
   const columns = [
     {
       title: "User",
@@ -59,23 +47,22 @@ export const Users = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <Button onClick={() => resetPassword(record.email)}>
-            Reset password
-          </Button>
+          <Button onClick={() => {}}>Edit user</Button>
           <Button onClick={showConfirm}>Delete</Button>
         </Space>
       ),
     },
   ];
   React.useEffect(() => {
+    if (email !== "admin@example.com") {
+      navigate("/");
+    }
+  }, [email, navigate]);
+  React.useEffect(() => {
     fetchGet("auth/listusers");
     // eslint-disable-next-line
   }, []);
-  React.useEffect(() => {
-    if (resetPasswordResult.error) {
-      openNotificationWithIcon("error", resetPasswordResult.error);
-    }
-  }, [resetPasswordResult]);
+
   return (
     <Layout>
       <Breadcrumb style={{ marginLeft: "16px" }}>
@@ -88,7 +75,7 @@ export const Users = () => {
         <div>
           {result && (
             <Table
-              loading={isLoading || resetPasswordLoading}
+              loading={isLoading}
               columns={columns}
               dataSource={result.error ? null : result}
             />
